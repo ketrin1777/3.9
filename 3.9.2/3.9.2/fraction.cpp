@@ -30,6 +30,18 @@ Fraction Fraction::operator-(Fraction& other) {
     return res;
 }
 
+Fraction Fraction::operator*(Fraction& b)
+{
+    Fraction result(0, 0);
+
+    result.denominator_ = this->denominator_ * b.denominator_;;
+    result.numerator_ = this->numerator_ * b.numerator_;
+    int del = std::gcd(result.numerator_, result.denominator_);
+    result.denominator_ = result.denominator_ / del;
+    result.numerator_ = result.numerator_ / del;
+    return result;
+}
+
 Fraction Fraction::operator/(Fraction& other) {
     Fraction res(0, 0);
 
@@ -39,9 +51,6 @@ Fraction Fraction::operator/(Fraction& other) {
     res.denominator_ = res.denominator_ / del;
     res.numerator_ = res.numerator_ / del;
     return res;
-}
-Fraction Fraction::operator-() {
-    return !(*this < other);
 }
 Fraction& Fraction::operator++() {
     this->numerator_ += this->denominator_;

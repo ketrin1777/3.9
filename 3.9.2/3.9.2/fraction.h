@@ -17,7 +17,6 @@ public:
     Fraction operator-(Fraction& other);
     Fraction operator*(Fraction& other);
     Fraction operator/(Fraction& other);
-    Fraction operator-();
     Fraction& operator++();
     Fraction operator++(int);
     Fraction& operator--();
